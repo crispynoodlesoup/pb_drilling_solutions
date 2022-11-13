@@ -52,6 +52,7 @@ nav {
 main {
     background-color: var(--secondary-color);
     flex: 1;
+    padding-bottom: 32px;
 }
 
 .chart-div {

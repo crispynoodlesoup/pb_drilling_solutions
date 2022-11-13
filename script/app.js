@@ -24,7 +24,8 @@ async function astroidToGraph(num, data1, data2) {
                     x: json[i][data1],
                     y: json[i][data2]
                 });
-                break;
+                if (dataSet1.length > 1 && json[i][""])
+                    break;
             case "AstroBit":
                 dataSet2.push({
                     x: json[i][data1],
@@ -45,6 +46,31 @@ async function astroidToGraph(num, data1, data2) {
                 break;
         }
     }
+
+    /*
+    let thing = [];
+    if (!!dataSet1)
+        thing.push({
+            start: dataSet1[0],
+            end: dataSet1[dataSet1.length - 1],
+        });
+    if (!!dataSet2)
+        thing.push({
+            start: dataSet2[0],
+            end: dataSet2[dataSet2.length - 1],
+        });
+    if (!!dataSet3)
+        thing.push({
+            start: dataSet3[0],
+            end: dataSet3[dataSet3.length - 1],
+        });
+    if (!!dataSet4)
+        thing.push({
+            start: dataSet4[0],
+            end: dataSet4[dataSet4.length - 1],
+        });
+    updateTable(thing);*/
+
     data = {
         datasets: [{
             label: "Buzz Drilldrin",
@@ -121,8 +147,8 @@ async function astroidToGraph(num, data1, data2) {
             }
         }
     };
-    
-    if(myChart)
+
+    if (myChart)
         myChart.destroy();
 
     myChart = new Chart('myChart', config);
@@ -154,6 +180,7 @@ const button = document.querySelector(".test-button");
 button.addEventListener("click", updateGraph);
 */
 
+/*
 // table
 const tableSection = document.querySelector(".tables");
 
@@ -190,7 +217,8 @@ function createTable() {
     const headerData = [
         "Name",
         "Efficiency",
-        "Cost"
+        "Cost",
+        "Cost Effectiveness"
     ]
     const caption = document.createElement("caption");
     const text = document.createTextNode("Drill Bit Table");
@@ -199,6 +227,18 @@ function createTable() {
     addHeaderRow(table, headerData);
     return table;
 }
+
+function updateTable(data) {
+    if (!!tableSection.firstElementChild) return;
+
+    const table = createTable();
+
+    for (let i = 0; i < data.length; i++) {
+        let organizedData = [];
+        let efficiency = data;
+    }
+    addRowsFromDataArray(table, exampleData);
+};
 
 const exampleData = [[
     "bizz",
@@ -230,6 +270,6 @@ const exampleData = [[
     0.5
 ]];
 
-const table = createTable();
+let table = createTable();
 addRowsFromDataArray(table, exampleData);
-tableSection.appendChild(table);
+tableSection.appendChild(table);*/
