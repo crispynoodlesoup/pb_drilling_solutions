@@ -9,6 +9,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 body {
@@ -49,6 +50,32 @@ main {
 .chart-div {
     margin: 16px auto 0;
     width: min(600px, 90%);
+}
+
+header {
+    padding: 16px 0 0;
+    margin: 32px auto 0;
+    width: min(90vw, 800px);
+    text-align: center;
+}
+
+figcaption {
+    font-size: xx-small;
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: auto;
+    height: 256px;
+}
+
+header h1 {
+    margin-top: 16px;
 }
 
 section {
