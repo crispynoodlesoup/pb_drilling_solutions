@@ -82,20 +82,56 @@ function addHeaderRow(table, data) {
     table.appendChild(row);
 }
 
-function addDataRow() {
-    
+function addDataRow(table, data) {
+    const row = document.createElement("tr");
+    for(let i = 0; i < data.length; i++) {
+        const cell = document.createElement("td");
+        const text = document.createTextNode(data[i]);
+        cell.appendChild(text);
+        row.appendChild(cell);
+    }
+    table.appendChild(row);   
+}
+
+function addRowsFromDataArray(table, data) {
+    for(let i = 0; i < data.length; i++) {
+        addDataRow(table, data[i]);
+    }
 }
 
 function createTable() {
     const table = document.createElement("table");
     const headerData = [
-        "name",
-        "efficiency",
-        "cost"
+        "Name",
+        "Efficiency",
+        "Cost"
     ]
+    const caption = document.createElement("caption");
+    const text = document.createTextNode("Drill Bit Table");
+    caption.appendChild(text);
+    table.appendChild(caption);
     addHeaderRow(table, headerData);
     return table;
 }
 
+const exampleData = [[
+    "bizz",
+    10,
+    1.0
+], [
+    "fuzz",
+    0,
+    0.5
+], [
+    "booze",
+    1,
+    2.0
+], [
+    "fahze",
+    5,
+    3.0
+]];
+
 const table = createTable();
+addRowsFromDataArray(table, exampleData);
 tableSection.appendChild(table);
