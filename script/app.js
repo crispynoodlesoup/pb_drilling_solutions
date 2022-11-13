@@ -130,6 +130,18 @@ const exampleData = [[
     "fahze",
     5,
     3.0
+], [
+    "bizz",
+    10,
+    1.0
+], [
+    "fuzz",
+    0,
+    0.5
+], [
+    "fuzz",
+    0,
+    0.5
 ]];
 
 const table = createTable();
