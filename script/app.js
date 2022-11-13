@@ -2,6 +2,10 @@ const borderColor = "#aaa";
 const color = "#666";
 let myChart;
 
+const asteroidNum = document.getElementById("asteroid-select");
+const xAx = document.getElementById("x-axis");
+const yAx = document.getElementById("y-axis");
+
 async function astroidToGraph(num, data1, data2) {
     const requestURL = `https://raw.githubusercontent.com/crispynoodlesoup/pb_drilling_solutions/main/data/ast${num}.json`;
     const request = new Request(requestURL);
@@ -9,18 +13,54 @@ async function astroidToGraph(num, data1, data2) {
     const response = await fetch(request);
     const json = await response.json();
 
-    dataSet = [];
-    for (let i = 0; i < json.length; i += 80) {
-        dataSet.push({
-            x: json[i][data1],
-            y: json[i][data2]
-        });
+    dataSet1 = [];
+    dataSet2 = [];
+    dataSet3 = [];
+    dataSet4 = [];
+    for (let i = 0; i < json.length; i += 37) {
+        switch (json[i]["DRILL_BIT_NAME"]) {
+            case "Buzz Drilldrin":
+                dataSet1.push({
+                    x: json[i][data1],
+                    y: json[i][data2]
+                });
+            case "AstroBit":
+                dataSet2.push({
+                    x: json[i][data1],
+                    y: json[i][data2]
+                });
+            case "ChallengDriller":
+                dataSet3.push({
+                    x: json[i][data1],
+                    y: json[i][data2]
+                });
+            case "Apollo":
+                dataSet4.push({
+                    x: json[i][data1],
+                    y: json[i][data2]
+                });
+        }
     }
     data = {
         datasets: [{
-            label: 'Scatter Dataset',
-            data: dataSet,
+            label: "Buzz Drilldrin",
+            data: dataSet1,
             backgroundColor: '#4b85e9',
+            color: "white"
+        }, {
+            label: 'AstroBit',
+            data: dataSet2,
+            backgroundColor: '#87fa83',
+            color: "white"
+        }, {
+            label: 'ChallengDriller',
+            data: dataSet3,
+            backgroundColor: '#ff91f8',
+            color: "white"
+        }, {
+            label: 'Apollo',
+            data: dataSet4,
+            backgroundColor: '#ffbf49',
             color: "white"
         }],
     };
@@ -35,7 +75,7 @@ async function astroidToGraph(num, data1, data2) {
                     text: 'Drill Bit Comparison'
                 },
                 legend: {
-                    display: false,
+                    display: true,
                     labels: {
                         color: "#bbb",
                     }
@@ -77,19 +117,41 @@ async function astroidToGraph(num, data1, data2) {
             }
         }
     };
+    
+    if(myChart)
+        myChart.destroy();
 
     myChart = new Chart('myChart', config);
 }
 
-function updateGraph() {
+astroidToGraph(1, `BIT_DEPTH`, `RATE_OF_PENETRATION`);
+
+asteroidNum.addEventListener('change', (e) => updateGraph(asteroidNum.value, `${xAx.value}`, `${yAx.value}`));
+xAx.addEventListener('change', (e) => updateGraph(asteroidNum.value, `${xAx.value}`, `${yAx.value}`));
+yAx.addEventListener('change', (e) => updateGraph(asteroidNum.value, `${xAx.value}`, `${yAx.value}`));
+
+function updateGraph(num, data1, data2) {
     myChart.destroy();
-    astroidToGraph(num, "RATE_OF_PENETRATION", "DIFFERENTIAL_PRESSURE");
+    console.log(data1);
+    astroidToGraph(Number(num), data1, data2);
 }
 
-dataSet1 = astroidToGraph(1, "RATE_OF_PENETRATION", "DIFFERENTIAL_PRESSURE");
+
+
+
+/*
+let num = 1;
+
+function updateGraph() {
+    myChart.destroy();
+    num++;
+    astroidToGraph(num, "CURRENT_COST", "BIT_DEPTH");
+}
+
+dataSet1 = astroidToGraph(1, "CURRENT_COST", "BIT_DEPTH");
 const button = document.querySelector(".test-button");
 button.addEventListener("click", updateGraph);
-
+*/
 
 
 /*

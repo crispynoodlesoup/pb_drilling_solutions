@@ -23,11 +23,61 @@
     </nav>
     <main>
         <section class="graph">
-            <p>omg its graph</p>
+            <p>Make a selection!</p>
+            <div class="flex-row">
+                <div class="flex-column">
+                    <label for="asteroid">Asteroid Number</label>
+                    <select name="asteroid" id="asteroid-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                <div class="flex-column">
+                    <label for="asteroid">X Axis</label>
+                    <select name="x" id="x-axis">
+                        <option value="BIT_DEPTH">Depth</option>
+                        <option value="RATE_OF_PENETRATION">Rate Of Penetration</option>
+                        <option value="HOOK_LOAD">Hook Load</option>
+                        <option value="DIFFERENTIAL_PRESSURE">Diff. Penetration</option>
+                        <option value="WEIGHT_ON_BIT">Weight On Bit</option>
+                        <option value="CURRENT_COST">Current Cost</option>
+                        <option value="TIME">Time</option>
+                    </select>
+                </div>
+                <div class="flex-column">
+                    <label for="asteroid">Y Axis</label>
+                    <select name="y" id="y-axis">
+                        <option value="BIT_DEPTH">Depth</option>
+                        <option value="RATE_OF_PENETRATION">Rate Of Penetration</option>
+                        <option value="HOOK_LOAD">Hook Load</option>
+                        <option value="DIFFERENTIAL_PRESSURE">Diff. Penetration</option>
+                        <option value="WEIGHT_ON_BIT">Weight On Bit</option>
+                        <option value="CURRENT_COST">Current Cost</option>
+                        <option value="TIME">Time</option>
+                    </select>
+                </div>
+            </div>
             <div class="chart-div">
                 <canvas id="myChart"></canvas>
             </div>
-            <button class="test-button">Press Me!</button>
         </section>
         <!--
         <section class="tables">

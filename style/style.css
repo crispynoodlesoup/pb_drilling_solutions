@@ -3,6 +3,7 @@
     --secondary-color: #2c2c2c;
     --text-color: white;
     --accent-color: #4b85e9;
+    --c: #ffbf49;
 }
 
 * {
@@ -13,6 +14,7 @@
 }
 
 .flex-row {
+    margin-top: 16px;
     display: flex;
     justify-content: space-evenly;
 }
@@ -210,4 +212,19 @@ caption {
     display: flex;
     flex-direction: column;
     margin-right: 15px;
+}
+
+select {
+    width: 150px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    font-size: small;
 }
