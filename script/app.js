@@ -154,7 +154,6 @@ const button = document.querySelector(".test-button");
 button.addEventListener("click", updateGraph);
 */
 
-/*
 // table
 const tableSection = document.querySelector(".tables");
 
@@ -233,4 +232,4 @@ const exampleData = [[
 
 const table = createTable();
 addRowsFromDataArray(table, exampleData);
-tableSection.appendChild(table);*/
+tableSection.appendChild(table);
