@@ -56,7 +56,7 @@ main {
 
 .chart-div {
     margin: 16px auto 0;
-    width: min(600px, 90%);
+    width: min(1024px, 90%);
 }
 
 header {
@@ -266,4 +266,8 @@ label {
 .Depth{
     margin-left: 150px;
     margin-top: 75px;
+}
+
+section.graph {
+    width: min(90vw, 1200px);
 }

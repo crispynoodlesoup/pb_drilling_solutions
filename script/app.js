@@ -17,7 +17,7 @@ async function astroidToGraph(num, data1, data2) {
     dataSet2 = [];
     dataSet3 = [];
     dataSet4 = [];
-    for (let i = 0; i < json.length; i += 37) {
+    for (let i = 0; i < json.length; i += 23) {
         switch (json[i]["DRILL_BIT_NAME"]) {
             case "Buzz Drilldrin":
                 dataSet1.push({
