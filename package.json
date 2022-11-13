@@ -18,5 +18,8 @@
   "homepage": "https://github.com/crispynoodlesoup/pb_drilling_solutions#readme",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }

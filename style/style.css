@@ -206,3 +206,42 @@ caption {
     flex-direction: column;
     margin-right: 15px;
 }
+
+.charts{
+    margin-left: 90px;
+    margin-top: 30px;
+}
+.arrow1{
+    height: 700px;
+    position: absolute;
+    z-index: 3;
+    clip: rect(0, 300px, 100px, 0)
+}
+.arrow2{
+    height: 700px;
+    position: absolute;
+    z-index: 2;
+    clip: rect(0, 300px, 150px, 0)
+}
+.arrow3{
+    height: 700px;
+    position: absolute;
+    z-index: 1;
+    clip: rect(0, 300px, 200px, 0)
+}
+.arrow4{
+    height: 700px;
+    position: absolute;
+    z-index: 0;
+    clip: rect(0, 300px, 400px, 0)
+}
+.arrow5{
+    height: 700px;
+    position: absolute;
+    z-index: 0;
+    clip: rect(0, 700px, 700px, 0)
+}
+.Depth{
+    margin-left: 150px;
+    margin-top: 75px;
+}
