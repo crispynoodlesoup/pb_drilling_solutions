@@ -63,7 +63,7 @@ figcaption {
     font-size: xx-small;
 }
 
-p {
+section p {
     font-size: 20px;
     text-align: center;
 }
@@ -133,4 +133,76 @@ tr:nth-child(even) td {
 caption {
     padding: 10px;
     font-weight: 700;
+}
+
+.bio{
+    margin-top: 60px;
+    display: flex;
+    height: 255px;
+    justify-content: center;
+}
+
+
+.leftbio img{
+    justify-self: center;
+    height: 85%;
+    border-radius: 50%;
+    border-style: dashed;
+    border-width: 5px;
+    right: 0%;
+    margin: 0%;
+}
+
+.leftbio{
+    display: flex;
+    align-items: center;
+    width: 35%;
+}
+
+.leftbio p{
+    text-align: left;
+    max-width: 325px;
+    font-size: 17px;
+}
+
+.writing h2{
+    margin-bottom: 15px;
+}
+
+.leftbio .writing{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.rightbio img{
+    display: inline-block;
+    justify-self: center;
+    height: 218px;
+    width: 218px;
+    border-radius: 50%;
+    border-style: dashed;
+    border-width: 5px;
+    right: 0%;
+    margin: 0%;
+}
+
+.rightbio{
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    width: 35%;
+    text-align: right;
+}
+
+.rightbio p{
+    text-align: right;
+    max-width: 325px;
+    font-size: 17px;
+}
+
+.rightbio .writing{
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
 }
