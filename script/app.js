@@ -1,67 +1,104 @@
 const borderColor = "#aaa";
 const color = "#666";
+let myChart;
 
-const data = {
-    datasets: [{
-        label: 'Scatter Dataset',
-        data: [{x: 0, y:0}],
-        backgroundColor: '#4b85e9',
-        color: "white"
-    }],
-};
+async function astroidToGraph(num, data1, data2) {
+    const requestURL = `https://raw.githubusercontent.com/crispynoodlesoup/pb_drilling_solutions/main/data/ast${num}.json`;
+    const request = new Request(requestURL);
 
-const config = {
-    type: 'scatter',
-    data: data,
-    options: {
-        plugins: {
-            title: {
-                color: "white",
-                display: true,
-                text: 'Drill Bit Comparison'
-            },
-            legend: {
-                display: false,
-                labels: {
-                    color: "#bbb",
+    const response = await fetch(request);
+    const json = await response.json();
+
+    dataSet = [];
+    for (let i = 0; i < json.length; i += 80) {
+        dataSet.push({
+            x: json[i][data1],
+            y: json[i][data2]
+        });
+    }
+    data = {
+        datasets: [{
+            label: 'Scatter Dataset',
+            data: dataSet,
+            backgroundColor: '#4b85e9',
+            color: "white"
+        }],
+    };
+    const config = {
+        type: 'scatter',
+        data: data,
+        options: {
+            plugins: {
+                title: {
+                    color: "white",
+                    display: true,
+                    text: 'Drill Bit Comparison'
+                },
+                legend: {
+                    display: false,
+                    labels: {
+                        color: "#bbb",
+                    }
                 }
-            }
-        },
-        scales: {
-            x: {
-                ticks: {
-                    color: "#bbb"
-                },
-                grid: {
-                    drawBorder: true,
-                    borderColor: borderColor,
-                    color: color,
-                },
-                type: 'linear',
-                position: 'bottom'
             },
-            y: {
-                ticks: {
-                    color: "#bbb"
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: data1.split("_").join(" ").toLowerCase(),
+                        color: "white"
+                    },
+                    ticks: {
+                        color: "#bbb"
+                    },
+                    grid: {
+                        drawBorder: true,
+                        borderColor: borderColor,
+                        color: color,
+                    },
+                    type: 'linear',
+                    position: 'bottom'
                 },
-                grid: {
-                    drawBorder: true,
-                    borderColor: borderColor,
-                    color: color,
+                y: {
+                    title: {
+                        display: true,
+                        text: data2.split("_").join(" ").toLowerCase(),
+                        color: "white"
+                    },
+                    ticks: {
+                        color: "#bbb"
+                    },
+                    grid: {
+                        drawBorder: true,
+                        borderColor: borderColor,
+                        color: color,
+                    }
                 }
             }
         }
-    }
-};
+    };
 
-const myChart = new Chart('myChart', config);
+    myChart = new Chart('myChart', config);
+}
 
+function updateGraph() {
+    myChart.destroy();
+    astroidToGraph(num, "RATE_OF_PENETRATION", "DIFFERENTIAL_PRESSURE");
+}
+
+dataSet1 = astroidToGraph(1, "RATE_OF_PENETRATION", "DIFFERENTIAL_PRESSURE");
+const button = document.querySelector(".test-button");
+button.addEventListener("click", updateGraph);
+
+
+
+/*
 // table
 const tableSection = document.querySelector(".tables");
 
 function addHeaderRow(table, data) {
     const row = document.createElement("tr");
-    for(let i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         const cell = document.createElement("th");
         const text = document.createTextNode(data[i]);
         cell.appendChild(text);
@@ -72,17 +109,17 @@ function addHeaderRow(table, data) {
 
 function addDataRow(table, data) {
     const row = document.createElement("tr");
-    for(let i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         const cell = document.createElement("td");
         const text = document.createTextNode(data[i]);
         cell.appendChild(text);
         row.appendChild(cell);
     }
-    table.appendChild(row);   
+    table.appendChild(row);
 }
 
 function addRowsFromDataArray(table, data) {
-    for(let i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         addDataRow(table, data[i]);
     }
 }
@@ -134,4 +171,4 @@ const exampleData = [[
 
 const table = createTable();
 addRowsFromDataArray(table, exampleData);
-tableSection.appendChild(table);
+tableSection.appendChild(table);*/
