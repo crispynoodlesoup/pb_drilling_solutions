@@ -16,20 +16,31 @@
     <nav>
         <h2><a href="./index.html">PB Solutions</a></h2>
         <ul>
+            <li><a href="./index.html">Home</a></li>
             <li><a href="./about.html">About</a></li>
-            <li><a href="./tools.html">Tools</a></li>
+            <li><a href="./tools.html">Graph It!</a></li>
         </ul>
     </nav>
     <main>
-        <form class="Depth" onsubmit="calculateGraph()">
-            <input type="text"/>
-        </form>
-        <div class="charts">
-            <img src="./public/arrow1.png" alt="Drill Arrow" class="arrow1"/>
-            <img src="./public/arrow2.png" alt="Drill Arrow" class="arrow2"/>
-            <img src="./public/arrow3.png" alt="Drill Arrow" class="arrow3"/>
-            <img src="./public/arrow4.png" alt="Drill Arrow" class="arrow4"/>
-            <img src="./public/arrow5.png" alt="Drill Arrow" class="arrow5"/>
+        <div class="left">
+            <form class="Depth" onsubmit="calculateGraph()">
+                <div class="flex-column">
+                    <label for="">Input a depth!</label>
+                    <input type="text" />
+                </div>
+            </form>
+            <div class="arrows">
+                <img src="./public/arrow1.png" alt="Drill Arrow" class="arrow1" />
+                <img src="./public/arrow2.png" alt="Drill Arrow" class="arrow2" />
+                <img src="./public/arrow3.png" alt="Drill Arrow" class="arrow3" />
+                <img src="./public/arrow4.png" alt="Drill Arrow" class="arrow4" />
+                <img src="./public/arrow5.png" alt="Drill Arrow" class="arrow5" />
+            </div>
+        </div>
+        <div class="right">
+            <div class="charts">
+
+            </div>
         </div>
     </main>
     <footer>
