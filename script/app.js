@@ -24,21 +24,25 @@ async function astroidToGraph(num, data1, data2) {
                     x: json[i][data1],
                     y: json[i][data2]
                 });
+                break;
             case "AstroBit":
                 dataSet2.push({
                     x: json[i][data1],
                     y: json[i][data2]
                 });
+                break;
             case "ChallengDriller":
                 dataSet3.push({
                     x: json[i][data1],
                     y: json[i][data2]
                 });
+                break;
             case "Apollo":
                 dataSet4.push({
                     x: json[i][data1],
                     y: json[i][data2]
                 });
+                break;
         }
     }
     data = {
@@ -124,7 +128,7 @@ async function astroidToGraph(num, data1, data2) {
     myChart = new Chart('myChart', config);
 }
 
-astroidToGraph(1, `BIT_DEPTH`, `RATE_OF_PENETRATION`);
+astroidToGraph(1, `BIT_DEPTH`, `CURRENT_COST`);
 
 asteroidNum.addEventListener('change', (e) => updateGraph(asteroidNum.value, `${xAx.value}`, `${yAx.value}`));
 xAx.addEventListener('change', (e) => updateGraph(asteroidNum.value, `${xAx.value}`, `${yAx.value}`));
@@ -135,9 +139,6 @@ function updateGraph(num, data1, data2) {
     console.log(data1);
     astroidToGraph(Number(num), data1, data2);
 }
-
-
-
 
 /*
 let num = 1;
@@ -152,7 +153,6 @@ dataSet1 = astroidToGraph(1, "CURRENT_COST", "BIT_DEPTH");
 const button = document.querySelector(".test-button");
 button.addEventListener("click", updateGraph);
 */
-
 
 /*
 // table

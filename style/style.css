@@ -237,7 +237,7 @@ label {
     height: 700px;
     position: absolute;
     z-index: 3;
-    clip: rect(0, 300px, 100px, 0)
+    clip: rect(0, 300px, 100px, 0);
 }
 .arrow2{
     height: 700px;
@@ -261,7 +261,8 @@ label {
     height: 700px;
     position: absolute;
     z-index: 0;
-    clip: rect(0, 700px, 700px, 0)
+    clip: rect(0, 700px, 700px, 0);
+    filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(120deg) brightness(120%) contrast(80%);
 }
 .Depth{
     margin-left: 150px;
@@ -270,4 +271,9 @@ label {
 
 section.graph {
     width: min(90vw, 1200px);
+}
+
+div.left {
+    width: clip(300px, 30vw, 100px);
+    width: clip(600px, 80%, 300px);
 }
